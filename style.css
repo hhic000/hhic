@@ -1,0 +1,413 @@
+/* ===========================
+   CONFIG GENERAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+    background:black;
+    font-family:Segoe UI, Arial, sans-serif;
+    color:white;
+}
+
+/* ===========================
+   PANTALLA 1
+=========================== */
+
+#introSection{
+    position:relative;
+    width:100vw;
+    height:100vh;
+
+    background-image:url("fondo1.jpg");
+    background-size:90% auto;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+}
+
+#introOverlay{
+    position:absolute;
+    inset:0;
+
+    background:black;
+    opacity:1;
+
+    z-index:1;
+}
+
+#dvdButtonContainer{
+    position:absolute;
+    z-index:5;
+
+    left:100px;
+    top:100px;
+}
+
+#hhicButton{
+
+    position:relative;
+
+    width:130px;
+    height:55px;
+
+    border:none;
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:18px;
+    font-weight:bold;
+
+    color:rgba(255,235,245,.95);
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,.18) 0%,
+        rgba(255,255,255,.05) 45%,
+        rgba(255,255,255,.02) 100%
+    );
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+        inset 0 12px 18px rgba(255,255,255,.35),
+        inset 0 -8px 12px rgba(255,255,255,.05),
+        0 0 12px rgba(255,255,255,.08);
+
+    opacity:0;
+
+    animation:pulse 3s infinite;
+
+    overflow:hidden;
+}
+
+#hhicButton::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+    top:5px;
+
+    width:75%;
+    height:18px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,.9),
+        rgba(255,255,255,.15)
+    );
+
+    filter:blur(2px);
+
+    pointer-events:none;
+}
+
+#hhicButton::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:12px;
+    bottom:8px;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.35);
+
+    filter:blur(4px);
+
+    pointer-events:none;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* ===========================
+   PANTALLA 2
+=========================== */
+
+#mainSection{
+
+    min-height:100vh;
+
+    background-image:url("fondo2.jpg");
+    background-size:95% auto;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    position:relative;
+
+    display:none;
+}
+
+#mainOverlay{
+
+    position:absolute;
+    inset:0;
+
+    background:black;
+    opacity:1;
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+/* ===========================
+   CONTENEDOR GENERAL
+=========================== */
+
+.contentWrapper{
+
+    position:relative;
+    z-index:5;
+
+    width:95%;
+
+    margin:auto;
+
+    padding-top:80px;
+    padding-bottom:120px;
+}
+
+/* ===========================
+   FILAS
+=========================== */
+
+.row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    margin-bottom:40px;
+}
+
+/* ===========================
+   MODULOS FRUTIGER AERO
+=========================== */
+
+.glassModule{
+
+    flex:1;
+
+    min-height:260px;
+
+    padding:25px;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,.01);
+
+    backdrop-filter:blur(1px);
+
+    border:
+    1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.35),
+    inset 0 1px 1px rgba(255,255,255,.4);
+
+    overflow:hidden;
+}
+
+/* ===========================
+   TEXTOS
+=========================== */
+
+.rainbowText{
+
+    font-size:18px;
+    line-height:1.8;
+
+    font-weight:600;
+
+    animation:
+    rainbowShift 2s linear infinite;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.4);
+}
+
+@keyframes rainbowShift{
+
+    0%{
+        color:#ff4da6;
+    }
+
+    16%{
+        color:#ff884d;
+    }
+
+    33%{
+        color:#ffff66;
+    }
+
+    50%{
+        color:#66ffcc;
+    }
+
+    66%{
+        color:#66b3ff;
+    }
+
+    83%{
+        color:#c266ff;
+    }
+
+    100%{
+        color:#ff4da6;
+    }
+}
+
+/* ===========================
+   MODULOS DE IMAGEN
+=========================== */
+
+.imageModule{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.imageContainer{
+
+    position:relative;
+
+    width:100%;
+    height:220px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.25);
+
+    overflow:hidden;
+}
+
+.dvdImage{
+
+    position:absolute;
+
+    width:260px;
+    height:auto;
+
+    left:10px;
+    top:10px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.4);
+}
+
+/* ===========================
+   TEXTO FINAL
+=========================== */
+
+#finalText{
+
+    margin-top:60px;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    background:
+    rgba(255,255,255,.12);
+
+    backdrop-filter:blur(14px);
+
+    border:
+    1px solid rgba(255,255,255,.3);
+
+    font-size:22px;
+    line-height:2;
+}
+
+/* ===========================
+   EFECTO VIDRIO EXTRA
+=========================== */
+
+.glassModule::before,
+#finalText::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,0)
+    );
+
+    pointer-events:none;
+}
+
+.dvdVideo{
+
+    position:absolute;
+
+    width:260px;
+
+    left:10px;
+    top:10px;
+
+    border-radius:16px;
+
+    object-fit:cover;
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,.35);
+}
